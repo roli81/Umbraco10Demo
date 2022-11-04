@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Sss.Umb9.Mutobo.PoCo.NavItem>
+<nav>
+
+    @foreach (var navItem in Model)
+    {
+        @if (navItem.Children.Any())
+        {
+            <div class="menu-parent">
+                <a href="@navItem.Url">
+                    @navItem.Title
+
+                </a>
+                <div class="sub-menu">
+                    @foreach (var childItem in navItem.Children)
+                    {
+                        <a href="@childItem.Url">@childItem.Title</a>
+                    }
+                </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="menu-parent"><a href="@navItem.Url">@navItem.Title</a></div>
+        }
+    }
+</nav>

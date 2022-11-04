@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Sss.Umb9.Mutobo.PageModels.HomePage>
+@{
+	Layout = "Master.cshtml";
+}
+
+<h1>@Model.PageTitle</h1>
+
+<div>
+    @if (Model.Modules != null && Model.Modules.Any())
+    {
+        foreach (var module in Model.Modules)
+        {
+            if (module.SpacerBeforeModule)
+            {
+                <div class="spacer"></div>
+            }
+
+            @await module.RenderModule(this.Html)
+
+            if (module.SpacerAfterModule)
+            {
+                <div class="spacer"></div>
+            }
+        }
+
+    }
+
+</div>
+

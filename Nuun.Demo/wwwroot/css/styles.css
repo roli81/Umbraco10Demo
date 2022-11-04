@@ -1,0 +1,245 @@
+﻿html {
+    height: 100%;
+    --navigation-background-color: #000000;
+    --navigation-background-color-hover: white;
+    --navigation-color-hover: black;
+    --footer-link-color: black;
+    --footer-link-color-hover: white;
+    --navigation-color: white;
+    --background-color: #3d3d41;
+    --color-primary: white;
+    --header-background-color: #7d7ab2;
+    --footer-background-color: #7d7ab2;
+}
+
+body {
+    height: 100%;
+    background-color: var(--background-color, red);
+    color: var(--color-primary, yellow);
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+div.spacer {
+    height: 1em;
+}
+
+
+/***Header */
+header {
+    background-color: var(--header-background-color,blue);
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+div.header-logo {
+    padding: 1em;
+}
+div.header-logo img {
+    max-height: 50px;
+    object-fit: cover;
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: var(--navigation-background-color, black);
+    padding: 1em 0 1em 0;
+}
+
+/***Navigation*/
+    nav > div {
+        position: relative;
+    }
+
+        nav > div  a {
+            background-color: var(--navigation-background-color, black);
+            padding: 0 0 0.5em 1em;
+            text-decoration: none;
+            font-weight: bold;
+            color: var(--navigation-color, red);
+        }
+
+        nav > div a:hover {
+            color: var(--navigation-color-hover, orange);
+        }
+
+            div.menu-parent div.sub-menu {
+                display: none;
+                position: absolute;
+                z-index: 5;
+                background-color: var(--navigation-background-color, black);
+                min-width: 50rem;
+            }
+
+div.menu-parent a {
+    padding: 1em;
+}
+
+
+div.menu-parent:hover,
+div.menu-parent:hover > a {
+    background-color: var(--navigation-background-color-hover, yellow);
+    color: var(--navigation-color-hover, white);
+}
+
+div.menu-parent:hover div.sub-menu {
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.menu-parent div.sub-menu a {
+    color: var(--navigation-color, red);
+}
+
+div.menu-parent:hover div.sub-menu a {
+    background-color: var(--navigation-background-color, black);
+    padding: 1rem 2rem;
+
+}
+
+ 
+
+
+div.menu-parent:hover div.sub-menu a:hover {
+    background-color: var(--navigation-background-color-hover, yellow);
+    color: var(--navigation-color-hover, orange);
+} 
+
+
+
+/*** MAIN*/
+main {
+    padding: 10em 2em 2em 2em;
+    min-height: 80%;
+}
+
+
+
+
+
+/** Footer */
+
+
+footer {
+    background-color: white;
+    min-height: 20VH;
+    padding: 2em;
+    background-color: var(--footer-background-color, orange);
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+    footer a {
+        color: var(--footer-link-color, black);
+    }
+
+    footer a:hover {
+        color: var(--footer-link-color-hover, white);
+        text-decoration: none;
+    }
+
+
+    footer > div.footer-first-row,
+    footer > div.footer-second-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    footer > div.footer-second-row {
+        margin-top: 1em;
+    }
+
+        div.footer-picture-links {
+            display: flex;
+            align-items: center;
+        }
+
+    div.footer-picture-links a {
+        margin-right: 0.5em;
+    }
+
+div.footer-links a {
+        margin-left: 0.5em;
+}
+
+    div.footer-block-links {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+/**Article*/
+
+div.article-abstract {
+    width: 50%;
+    margin: auto;
+    background-color: rgba(255,255,255,0.3);
+    padding: 1em;
+    border-radius: 1em; 
+
+}
+
+/********************/
+/**Modules */
+/********************/
+
+.carousel-caption {
+
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+/**Blog*/
+div.blog-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+    div.blog-list > div {
+        background-color: rgba(0,0,0,0.7);
+        width: 33%;
+        margin: 1em 0;
+        padding: 1em;
+        border-radius: 1em;
+    }
+
+        div.blog-list > div:hover {
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        div.blog-list > div > a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.8);
+        }
+
+        div.blog-list > div:hover > a {
+            color: rgba(255,255,255,1);
+        }
+
+div.blog-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0;
+}
+

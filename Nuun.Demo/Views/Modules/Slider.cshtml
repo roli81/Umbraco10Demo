@@ -1,0 +1,76 @@
+﻿@using Sss.Umb9.Mutobo.Interfaces
+@using Sss.Umb9.Mutobo.PoCo
+@model Sss.Umb9.Mutobo.Modules.SliderComponent
+
+
+@{
+    var uid = Guid.NewGuid();
+    var index = 0;
+}
+
+
+
+<div id="@($"carpousel-{uid}")" data-interval="1000" style="width: @($"{Model.Width}px"); height: @($"{Model.Height}px;") margin: 2em auto;" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+
+        @foreach (var slide in Model.Slides)
+        {
+            <button type="button" data-bs-target="#@($"carpousel-{uid}")" data-bs-slide-to="@index" @(index == 0 ? "class=active aria-current=true" : string.Empty) aria-label="Slide @index"></button>
+        }
+        @{
+            index = 0;
+        }
+  </div>
+  <div class="carousel-inner">
+        @foreach (var slide in Model.Slides)
+        {
+            if (slide is Sss.Umb9.Mutobo.PoCo.Picture picture)
+            {
+                <div class="carousel-item @(index == 0 ? "active" : string.Empty)">
+                    <img src="@picture.Image.DefaultSource.Src"
+                 class="d-block w-100"
+                 alt="@picture.Image.Alt" />
+                </div>
+            }
+            else if (slide is Sss.Umb9.Mutobo.PoCo.TextImageSlide textImageSlide)
+            {
+                <div class="carousel-item @(index == 0 ? "active" : string.Empty)">
+                    <img src="@textImageSlide.Image.DefaultSource.Src"
+                 class="d-block w-100"
+                 alt="@textImageSlide.Image.Alt" />
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>@textImageSlide.Title</h5>
+                        <p>@textImageSlide.Text</p>
+                        @if (textImageSlide.Link != null)
+                        {
+                            <a href="@textImageSlide.Link.Url" target="@textImageSlide.Link.Target">@textImageSlide.Link.Name</a>
+                        }
+                    </div>
+                </div>
+
+            }
+            else if (slide is IVideoComponent video)
+            {
+                <div class="carousel-item @(index == 0 ? "active" : string.Empty)">
+                    @await Html.PartialAsync("~/Views/Modules/VideoComponent.cshtml", video);
+                </div>
+            }
+
+
+            index++;
+        }
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#@($"carpousel-{uid}")" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#@($"carpousel-{uid}")" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+</div>
+
+
+

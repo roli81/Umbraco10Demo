@@ -1,0 +1,13 @@
+﻿@model Sss.Umb9.Mutobo.Modules.FlipTeaser
+
+
+
+<base-m-flip-tile card-front-src='@Model.Image.DefaultSource.Src'>
+    <h4 class="front overlay">@Model.Title</h4>
+    <p class="back">
+        @Html.Raw(Model.Text)
+    </p>
+    <a class="back" href="@Model.Link.Url" target="@Model.Link.Target">
+       mehr erfahren
+    </a>
+</base-m-flip-tile>

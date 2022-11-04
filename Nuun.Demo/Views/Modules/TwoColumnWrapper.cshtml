@@ -1,0 +1,42 @@
+﻿@using Sss.Umb9.Mutobo.Constants
+@using Sss.Umb9.Mutobo.Modules
+@model Sss.Umb9.Mutobo.Modules.TwoColumnWrapper
+
+
+
+
+    <base-o-wrapper namespace="flipcard-wrapper-">
+        <style>
+            @@media only screen and (max-width: 1250px) {
+
+                :host > section {
+                    display: flex !important;
+                    flex-direction:  column;
+                    align-items: center;
+                }
+            }
+        </style>
+
+        @if (Model.Elements != null && Model.Elements.Any())
+        {
+            foreach (var element in Model.Elements)
+            {
+
+
+
+                @switch (element.Alias)
+                {
+
+                    case DocumentTypes.FlipTeaser.Alias:
+
+                        await Html.RenderPartialAsync("~/Views/Modules/FlipTeaser.cshtml", element as Sss.Umb9.Mutobo.Modules.FlipTeaser);
+
+
+                        break;
+                }
+
+            }
+
+        }
+    </base-o-wrapper>
+

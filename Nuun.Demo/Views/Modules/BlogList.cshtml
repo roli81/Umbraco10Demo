@@ -1,0 +1,39 @@
+﻿
+@model Sss.Umb9.Mutobo.Modules.BlogModule
+@inject Sss.Umb9.Mutobo.Interfaces.IImageService imageservice;
+
+
+
+
+@if (Model.BlogEntries != null && Model.BlogEntries.Any())
+{
+
+    <div class="blog-list">
+        @foreach (var highlight in Model.BlogEntries.OrderByDescending(be => be.Content.CreateDate))
+        {
+            <div>
+                <a href="@highlight.Content.Url()">
+                    <date>@highlight.Content.CreateDate.ToShortDateString()</date>
+                    <h3>@highlight.PageTitle</h3>
+                    <div>
+                        @if (highlight.EmotionImages != null && highlight.EmotionImages.Any())
+                        {
+                            /*** Get any Images with the injected Image Service **/
+                            var contentNode = highlight.Content.Value<IEnumerable<IPublishedContent>>(Sss.Umb9.Mutobo.Constants.DocumentTypes.ArticlePage.Fields.EmotionImages)?.FirstOrDefault();
+                            Sss.Umb9.Mutobo.PoCo.Image image = imageservice.GetImage(contentNode, width: 400, height: 225);
+                            
+                            <div class="blog-image-container">
+                                <img src="@image.DefaultSource.Src" alt="@image.Alt" />
+                            </div>
+                        }
+                    </div>
+                    <p>@(highlight.Abstract.Length > 20 ? highlight.Abstract.Substring(20) : highlight.Abstract)....<strong>mehr erfahren</strong></p>
+
+
+                </a>
+            </div>
+        }
+    </div>
+}
+
+

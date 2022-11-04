@@ -1,0 +1,9 @@
+﻿@model Sss.Umb9.Mutobo.Modules.Teaser
+
+<div>
+    
+    <a-picture defaultsource="@Model.Images.FirstOrDefault()?.DefaultSource.Src" sources="@Model.Images.FirstOrDefault()?.GetSourcesAsJSON()" ></a-picture>
+
+    <h3>@Model.TeaserTitle</h3>
+    <p>@Html.Raw(Model.TeaserText)</p>
+</div>

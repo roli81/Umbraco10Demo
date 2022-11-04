@@ -1,0 +1,10 @@
+﻿@model Sss.Umb9.Mutobo.Interfaces.IHeaderConfiguration
+@inject Sss.Umb9.Mutobo.Interfaces.INavigationService _navigationService
+<div class="header-logo">
+    <a href="@Model.LogoUrl.Url">
+        <img src="@(Model.Logo?.DefaultSource?.Src ?? "")" alt="logo" />
+    </a>
+</div>
+<div>
+    @await Html.PartialAsync("~/Views/Partials/Navigation.cshtml", _navigationService.GetNavigation())
+</div>

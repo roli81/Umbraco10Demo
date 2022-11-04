@@ -1,0 +1,17 @@
+﻿@model Sss.Umb9.Mutobo.Interfaces.IVideoComponent
+
+<div style="text-align:center;">
+@if (Model.Video != null)
+{
+
+        <video width="@Model.Width" height="@Model.Height" controls>
+            <source src="@Model.Video.Source" type="video/mp4">
+        </video>
+}
+else
+{
+
+    @Html.Raw(Model.Embedded)
+
+}
+</div>

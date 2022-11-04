@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Sss.Umb9.Mutobo.PoCo.Image>
+
+
+
+
+
+
+<div id="carouselExampleSlidesOnly" style="width: 500px; margin: 2em auto;" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @{
+            var index = 0;
+        }
+        @foreach (var img in Model)
+        {
+            <div class="carousel-item @(index < 1 ? "active" : string.Empty)">
+                <img src="@img.DefaultSource.Src"
+                 class="d-block w-100"
+                 alt="@img.Alt" />
+
+                @*                <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>
+            Nulla vitae elit libero, a pharetra augue mollis interdum.
+            </p>
+            </div>*@
+            </div>
+            index++;
+        }
+    </div>
+</div>

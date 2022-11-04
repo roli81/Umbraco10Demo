@@ -1,0 +1,26 @@
+﻿@model Sss.Umb9.Mutobo.PageModels.ArticlePage
+
+
+
+<h1>@Model.PageTitle</h1>
+
+@if (!Model.HideAbstract)
+{
+    <div class="article-abstract">
+        <p>
+            @Model.Abstract
+        </p>
+    </div>
+}
+
+
+@if (Model.EmotionImages != null && Model.EmotionImages.Any())
+{
+    <div class="article-emotion-gallery">
+    @await Html.PartialAsync("~/Views/Partials/BootstrapGallery.cshtml", Model.EmotionImages)
+    </div>
+}
+
+<div class="main-content">
+    @Html.Raw(Model.MainContent)
+</div>

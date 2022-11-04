@@ -1,0 +1,28 @@
+﻿@model Sss.Umb9.Mutobo.Interfaces.IFooterConfiguration
+<div class="footer-first-row">
+    <div class="footer-picture-links">
+        @foreach (var picLink in Model.PictureLinks)
+        {
+            <a href="@picLink.Link.Url" target="@picLink.Link.Target">
+                <img src="@picLink.Image.DefaultSource.Src" alt="@picLink.Image.Alt" />
+            </a>
+        }
+    </div>
+    <div class="footer-block-links">
+        @foreach (var blocklink in Model.BlockLinks)
+        {
+            <a href="@blocklink.Url" target="@blocklink.Target">@blocklink.Name</a>
+        }
+    </div>
+</div>
+
+<div class="footer-second-row">
+    <div class="footer-copyright">@Html.Raw(Model.Copyright)</div>
+    <div class="footer-links">
+        @foreach (var link in Model.FooterLinks)
+        {
+            <a href="@link.Url" target="@link.Target">@link.Name</a>
+        }
+    </div>
+</div>
+
