@@ -68,7 +68,7 @@ namespace Sss.Umb9.Mutobo.Services
                 return new HeaderConfiguration(headerConfig, null)
                 {
                     NavigationItems = _navigationService.GetNavigation(),
-                    Logo = _imageService.GetImage(headerConfig.Value<IPublishedContent>(DocumentTypes.Configuration.Logo), height: 100),
+                    Logo = _imageService.GetImage(headerConfig.Value<IPublishedContent>(DocumentTypes.Configuration.Logo), height: 200),
                     Languages = _localizationService.GetAllLanguages()
                         .OrderBy(l => l.CultureInfo.TwoLetterISOLanguageName)
                         .Select(a => new PoCo.Language()

@@ -137,6 +137,7 @@ namespace Sss.Umb9.Mutobo.Constants
                 public const string FooterColor = "footerColor";
                 public const string HeaderColor = "headerColor";
                 public const string NavigationBackgroundColor = "navigationBackgroundColor";
+                public const string NavigationBackgroundColorHover = "navigationBackgroundColorHover";
                 public const string NavigationColorHover = "navigationColorHover";
                 public const string NavigationColor = "navigationColor";
                 public const string NavigationHrColor = "navigationHrColor";

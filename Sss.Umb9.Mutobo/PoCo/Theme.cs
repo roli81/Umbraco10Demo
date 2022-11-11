@@ -34,6 +34,8 @@ namespace Sss.Umb9.Mutobo.PoCo
 
         public string HeaderColor => this.HasValue(DocumentTypes.Theme.Fields.HeaderColor) ? this.Value<string>(DocumentTypes.Theme.Fields.HeaderColor) : null;
         public string NavigationBackgroundColor => this.HasValue(DocumentTypes.Theme.Fields.NavigationBackgroundColor) ? this.Value<string>(DocumentTypes.Theme.Fields.NavigationBackgroundColor) : null;
+
+        public string NavigationBackgroundColorHover => this.HasValue(DocumentTypes.Theme.Fields.NavigationBackgroundColorHover) ? this.Value<string>(DocumentTypes.Theme.Fields.NavigationBackgroundColorHover) : null;
         public string NavigationColorHover => this.HasValue(DocumentTypes.Theme.Fields.NavigationColorHover) ? this.Value<string>(DocumentTypes.Theme.Fields.NavigationColorHover) : null;
         public string NavigationColor => this.HasValue(DocumentTypes.Theme.Fields.NavigationColor) ? this.Value<string>(DocumentTypes.Theme.Fields.NavigationColor) : null;
 

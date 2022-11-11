@@ -21,6 +21,7 @@ namespace Sss.Umb9.Mutobo.Interfaces
         string HeaderBackgroundColor { get; }
         string HeaderColor { get; }
         string NavigationBackgroundColor { get; }
+        string NavigationBackgroundColorHover { get; }
         string NavigationColorHover { get; }
         string NavigationColor { get; }
         string NavigationHrColor { get; }

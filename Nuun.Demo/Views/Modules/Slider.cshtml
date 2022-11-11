@@ -16,6 +16,7 @@
         @foreach (var slide in Model.Slides)
         {
             <button type="button" data-bs-target="#@($"carpousel-{uid}")" data-bs-slide-to="@index" @(index == 0 ? "class=active aria-current=true" : string.Empty) aria-label="Slide @index"></button>
+            index ++;
         }
         @{
             index = 0;
@@ -53,7 +54,7 @@
             else if (slide is IVideoComponent video)
             {
                 <div class="carousel-item @(index == 0 ? "active" : string.Empty)">
-                    @await Html.PartialAsync("~/Views/Modules/VideoComponent.cshtml", video);
+                    @await Html.PartialAsync("~/Views/Modules/VideoComponent.cshtml", video)
                 </div>
             }
 
